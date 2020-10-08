@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Scrollbars from 'react-custom-scrollbars';
 
-import {injectIntl} from 'react-intl';
+import {FormattedMessage, injectIntl} from 'react-intl';
 import classNames from 'classnames';
 
 import {debounce} from 'mattermost-redux/actions/helpers';
@@ -215,7 +215,12 @@ class SearchResults extends React.Component {
                 >
                     <NoResultsIndicator
                         variant={NoResultsVariant.PinnedPosts}
-                        subtitleValues={{text: <strong>{'Pin to Channel'}</strong>}}
+                        subtitleValues={{text: <strong>{
+                                <FormattedMessage
+                                    id='post_info.pin'
+                                    defaultMessage='Pin to Channel'
+                                />
+                        }</strong>}}
                     />
                 </div>
             );
